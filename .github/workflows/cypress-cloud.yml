@@ -6,7 +6,7 @@ on:
       spec:
         description: Run by cypress command line
         default: cypress/e2e/*
-jobs: 
+jobs:
   cypress-e2e-electron:
     runs-on: ubuntu-latest
     container:
@@ -55,6 +55,9 @@ jobs:
     container:
       image: cypress/browsers:node-22.14.0-chrome-134.0.6998.165-1-ff-136.0.3-edge-134.0.3124.85-1
     steps:
+      - name: List available browsers
+        run: npx cypress info
+    
       - name: Get code
         uses: actions/checkout@v4.2.2
 
